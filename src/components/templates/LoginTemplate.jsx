@@ -5,11 +5,18 @@ import { Btnsave } from "../moleculas/BtnSave";
 import { Linea } from "../atomos/Linea";
 import { v } from "../../styles/variables";
 import { Device } from "../../styles/breakpoints";
+import { Footer } from "../organismos/Footer";
+import { useAuthStore } from "../../store/AuthStore";
 
 export default function LoginTemplate() {
+  const loginGoogle = useAuthStore((state) => state.loginGoogle);
   return (
     <Container>
       <div className="card">
+        <ContentLogo>
+          <img src={v.logo} />
+          <span>ada369 3.0 d.10 - POS VENTAS</span>
+        </ContentLogo>
         <Title $paddingbottom="40px">Ingresar</Title>
         <form>
           <InputText2>
@@ -33,12 +40,14 @@ export default function LoginTemplate() {
           <span>O</span>
         </Linea>
         <Btnsave
+          funcion={loginGoogle}
           titulo="Google"
           bgcolor="#fff"
           icono={<v.iconogoogle />}
           width="100%"
         />
       </div>
+      <Footer />
     </Container>
   );
 }
@@ -49,6 +58,9 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  flex-direction: column;
+  padding: 0 10px;
+  color: ${({ theme }) => theme.text};
 
   .card {
     display: flex;
@@ -60,5 +72,22 @@ const Container = styled.div`
     @media ${Device.tablet} {
       width: 400px;
     }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+`;
+const ContentLogo = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  span {
+    font-weight: 700;
+  }
+  img {
+    width: 10%;
   }
 `;
