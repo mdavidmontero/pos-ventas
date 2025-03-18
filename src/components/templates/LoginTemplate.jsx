@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { Title } from "../atomos/Title";
 import { InputText2 } from "../organismos/formularios/InputText2";
-import { Btnsave } from "../moleculas/BtnSave";
 import { Linea } from "../atomos/Linea";
 import { v } from "../../styles/variables";
 import { Device } from "../../styles/breakpoints";
 import { Footer } from "../organismos/Footer";
 import { useAuthStore } from "../../store/AuthStore";
+import { Btn1 } from "../moleculas/Btn1";
 
 export default function LoginTemplate() {
   const loginGoogle = useAuthStore((state) => state.loginGoogle);
+
   return (
     <Container>
       <div className="card">
@@ -29,7 +30,7 @@ export default function LoginTemplate() {
               placeholder="password"
             />
           </InputText2>
-          <Btnsave
+          <Btn1
             titulo="Ingresar"
             bgcolor="#1cb0f6"
             color="255,255,255"
@@ -39,7 +40,7 @@ export default function LoginTemplate() {
         <Linea>
           <span>O</span>
         </Linea>
-        <Btnsave
+        <Btn1
           funcion={loginGoogle}
           titulo="Google"
           bgcolor="#fff"
