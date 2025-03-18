@@ -9,6 +9,7 @@ import { useUsuariosStore } from "../store/UsuariosStore";
 import { useQuery } from "@tanstack/react-query";
 import Spinner1 from "../components/moleculas/Spinner1";
 import { useEmpresaStore } from "../store/EmpresaStore";
+import Marca from "../pages/Marca";
 
 export function MyRoutes() {
   const { user } = UserAuth();
@@ -41,6 +42,7 @@ export function MyRoutes() {
         <Route path="/" element={<Home />} />
         <Route path="/configuracion" element={<Configuraciones />} />
         <Route path="/configuracion/categorias" element={<Categorias />} />
+        <Route path="/configuracion/marca" element={<Marca />} />
       </Route>
       <Route path="/login" element={<Login />} />
     </Routes>
